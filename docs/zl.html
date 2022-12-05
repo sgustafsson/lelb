@@ -17,14 +17,12 @@
         var up;
         var down;
 
-        var arr = ["Also los!", "Lola ist im Zelt.", "Lola ist mit Imo im Zelt", "Lolas Zelt ist alt", "Ist Lisa im Zelt?", "Ist tim im Zelt?", "Lisa ist mit Tima am Zelt", "Lisa als Inidaner.",
+        var arr = ["Also los!", "Lola ist im Zelt.", "Lola ist mit Imo im Zelt", "Lolas Zelt ist alt", "Ist Lisa im Zelt?", "Ist Tim im Zelt?", "Lisa ist mit Tima am Zelt.", "Lisa als Inidaner.",
             "Tim als Indianer.", "Toll!", "Los, Tim!", "Lola ist im Zelt.", "Lola ist im Baumhaus", "Tim ist mit Lola im Baumhaus", "Imo ist am Napf.", "Lisa ist am Ast.", "Toll, Lisa!", "Lola!", "Tim!", "Oma Isa",
             "Oma Isa ist am Baumhaus.", "Ist Oma Isa alt?", "O, lila Lollis in Omas Hand!", "Ist Imo Lollis?"];
 
         document.addEventListener("DOMContentLoaded", () => {
-            up = document.getElementById('GFG_UP');
-            down = document.getElementById('GFG_DOWN');
-
+                      down = document.getElementById('GFG_DOWN');
         });
 
 
@@ -39,6 +37,34 @@
             background: black;
             color: white;
             font-family: '72', sans-serif;
+            font-size: 5em;
+            padding: 1em;
+            transition: all .5s ease;
+        }
+
+
+        @media screen and (max-width: 1200px) {
+            body {
+                font-size: 5em;
+            }
+
+
+        }
+
+        @media screen and (max-width: 800px) {
+            body {
+                font-size: 3em;
+            }
+
+
+        }
+
+        @media screen and (max-width: 400px) {
+            body {
+                font-size: 1em;
+            }
+
+
         }
     </style>
 </head>
@@ -50,17 +76,14 @@
 
     <h1 style="color:white;">
         Einsterns Schwester - Erstlesebuch
-    </h1>
-
-    <p id="GFG_UP" style="font-size: 15px; font-weight: bold;">
-    </p>
-
+</h1>
 
     <button id="button" class="w3-button w3-xxlarge w3-green" onclick="GFG_Fun()"><span
             class=reload>&#x21bb;</span></button>
 
-    <p id="GFG_DOWN" style="font-size:144px; font-weight: bold;">
-    </p>
+    <br><br>
+    <p id="GFG_DOWN" style="font-weight: bold;">
+        </p>
 
 
 
