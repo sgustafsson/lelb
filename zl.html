@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zufällig Lesen</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script>
+
+        var up;
+        var down;
+
+        var arr = ["Also los!", "Lola ist im Zelt.", "Lola ist mit Imo im Zelt", "Lolas Zelt ist alt", "Ist Lisa im Zelt?", "Ist tim im Zelt?", "Lisa ist mit Tima am Zelt", "Lisa als Inidaner.",
+            "Tim als Indianer.", "Toll!", "Los, Tim!", "Lola ist im Zelt.", "Lola ist im Baumhaus", "Tim ist mit Lola im Baumhaus", "Imo ist am Napf.", "Lisa ist am Ast.", "Toll, Lisa!", "Lola!", "Tim!", "Oma Isa",
+            "Oma Isa ist am Baumhaus.", "Ist Oma Isa alt?", "O, lila Lollis in Omas Hand!", "Ist Imo Lollis?"];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            up = document.getElementById('GFG_UP');
+            down = document.getElementById('GFG_DOWN');
+
+        });
+
+
+        function GFG_Fun() {
+            down.innerHTML =
+                arr[Math.floor(Math.random() * arr.length)];
+        }
+    </script>
+
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: '72', sans-serif;
+        }
+    </style>
+</head>
+
+<body style="text-align:center;">
+
+
+
+
+    <h1 style="color:white;">
+        Einsterns Schwester - Erstlesebuch
+    </h1>
+
+    <p id="GFG_UP" style="font-size: 15px; font-weight: bold;">
+    </p>
+
+
+    <button id="button" class="w3-button w3-xxlarge w3-green" onclick="GFG_Fun()"><span
+            class=reload>&#x21bb;</span></button>
+
+    <p id="GFG_DOWN" style="font-size:144px; font-weight: bold;">
+    </p>
+
+
+
+</body>
+
+</html>
