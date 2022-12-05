@@ -19,7 +19,7 @@
 
         var arr = ["Also los!", "Lola ist im Zelt.", "Lola ist mit Imo im Zelt.", "Lolas Zelt ist alt.", "Ist Lisa im Zelt?", "Ist Tim im Zelt?", "Lisa ist mit Tima am Zelt.", "Lisa als Inidanerin.",
             "Tim als Indianer.", "Toll!", "Los, Tim!", "Lola ist im Zelt.", "Lola ist im Baumhaus.", "Tim ist mit Lola im Baumhaus.", "Imo ist am Napf.", "Lisa ist am Ast.", "Toll, Lisa!", "Lola!", "Tim!",
-            "Oma Isa", "Oma Isa ist am Baumhaus.", "Ist Oma Isa alt?", "O, lila Lollis in Omas Hand!", "Ist Imo Lollis?",
+            "Oma Isa", "Oma Isa ist am Baumhaus.", "Ist Oma Isa alt?", "O, lila Lollis in Omas Hand!", "Isst Imo Lollis?",
             "Im Tal.", "Tim ist mit Lola im Tal.", "Mama ist mit Imo im Tal.", "Lola ist mit lila Rucksack im Tal.", "Tim ist so matt.", "Brote mit Salami!", "Limo ist im Rucksack.", "Toll, Lola!",
             "Also isst Tim Brote mit Salami.", "Mama ist Salat.", "Mist! Imo isst Lolas Salami!", "Lass los, Imo!",
             "So malt Tim mit Lisa.", "Tim malt.", "Tim malt mit Lisa.", "Lisa malt Oma.", "Malt Tim Lamas?", "Lola, lass mal!", "Tim malt total toll!",
@@ -27,6 +27,7 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             down = document.getElementById('GFG_DOWN');
+            
         });
 
 
@@ -38,11 +39,18 @@
 
     <style>
         body {
-            background: black;
+            background: #0D1117;
             color: white;
             font-family: '72', sans-serif;
             font-size: 5em;
             text-align: center;
+        }
+
+        .w3-ghgrey,
+        .w3-hover-ghgrey:hover {
+            color: #white !important;
+            background-color: #161B22 !important;
+            width: auto !important;
         }
 
 
@@ -76,12 +84,23 @@
 
     <h3>Lola 1 Zufallsgenerator</h3>
 
-    <button id="button" class="w3-button w3-large w3-green" onclick="GFG_Fun()"><span class=reload>Nächster Satz...
-            &#x21bb;</span></button>
+    <button id="button" class="w3-button w3-large w3-green" onclick="GFG_Fun()"><span class=reload> &#x21bb;</span></button>
 
     <br>
-    <p id="GFG_DOWN" style="font-weight: bold;">
-    </p>
+
+    <div class="w3-row">
+        <div class="w3-col" style="width:10%">&nbsp;
+        </div>
+        <div class="w3-col" style="width:80%">
+            <div class="w3-panel w3-card-4 w3-ghgrey w3-round-large">
+                <p id="GFG_DOWN" style="font-weight: bold;">
+                    Drücke den Knopf
+                </p>
+            </div>
+        </div>
+        <div class="w3-col" style="width:10%">&nbsp;
+        </div>
+    </div>
 
 
 
