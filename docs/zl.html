@@ -12,6 +12,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
     <script>
 
         var satz;
@@ -46,7 +48,21 @@
                 }
             }
             //zufallsSatz();
+            
         });
+
+        function randomFox() {
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "https://randomfox.ca/floof/",
+                success: function (response) {
+                    console.log(response.image);
+                    document.getElementById('foximage').src = response.image;
+                    document.getElementById('id01').style.display='block';
+                }
+            });
+        }
 
 
         function zufallsSatz29() {
@@ -74,13 +90,19 @@
         }
 
         function increment() {
+           
             var current = parseInt(document.getElementById('zaehler').innerHTML);
-            if(Number.isNaN(current)) {
+           
+            if (Number.isNaN(current)) {
                 current = 0;
             }
-            console.log(current);
+            
             current = current + 1;
             document.getElementById('zaehler').innerHTML = current;
+            if(current % 5 === 0) {
+                randomFox();
+            }
+           
         }
     </script>
 
@@ -127,26 +149,18 @@
 
     <h2 style="color:#686868" id="headline"><b>Lese</b> Zufallsgenerator</h2>
 
-    <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green">Open
-        Modal</button>
 
     <div id="id01" class="w3-modal">
-        <div class="w3-modal-content w3-blue">
+        <div class="w3-modal-content">
             <div class="w3-container">
+                <h4 class="w3-white">Zur Belohnung ein Fuchs</h4>
                 <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-display-topright">&times;</span>
-                <input class="w3-check" type="checkbox" checked="checked" id="bh11">
-                <label>Seite 11</label>
-
-                <input class="w3-check" type="checkbox" id="bh29">
-                <label>Seite 29</label>
-
-                <input class="w3-check" type="checkbox" id="alle">
-                <label>Alle Seiten</label>
+                    class="w3-button w3-display-topright w3-black">&times;</span>
+                <img src="" id="foximage" style="max-width: 100%;max-height: 100%;">
             </div>
         </div>
     </div>
- -->
+
     <div class="w3-row">
         <div class="w3-col" style="width:10%">&nbsp;
         </div>
@@ -154,20 +168,20 @@
 
             <div class="w3-panel w3-card-4 w3-ghgrey w3-round-large w3-padding">
 
-                
-                    <button id="button11" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
+
+                <button id="button11" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
                     onclick="zufallsSatz11()"><span class=reload>&nbsp;<b>Seite 11 &#x21bb;</b>&nbsp;</span></button>
 
-                    <button id="button29" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
+                <button id="button29" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
                     onclick="zufallsSatz29()"><span class=reload>&nbsp;<b>Seite 29 &#x21bb;</b>&nbsp;</span></button>
 
-                    <button id="button" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
+                <button id="button" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
                     onclick="zufallsSatz()"><span class=reload>&nbsp;<b>Alle Seiten &#x21bb;</b>&nbsp;</span></button>
 
-                    <p id="satz" style="font-weight: bold;">
-                       <i style="color:#686868;font-size:66%">Drücke einen grünen Knopf</i>
-                    </p>
-                    <p id="zaehler" style="color:#686868; font-size:33%; font-weight: bold;"></p>
+                <p id="satz" style="font-weight: bold;">
+                    <i style="color:#686868;font-size:66%">Drücke einen grünen Knopf</i>
+                </p>
+                <p id="zaehler" style="color:#686868; font-size:33%; font-weight: bold;"></p>
             </div>
         </div>
         <div class="w3-col" style="width:10%">&nbsp;
