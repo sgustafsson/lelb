@@ -18,7 +18,7 @@
         var satz;
 
         const bh2 = {
-            "seite11": ["Tim malt Lisa", "Tim malt Lisa im Sessel.", "Tim malt Lisa im Sessel am See.", "Tim malt Lisa im Sessel am See. Toll!", "Male mit Tim!"],
+            "seite11": ["Tim malt Lisa.", "Tim malt Lisa im Sessel.", "Tim malt Lisa im Sessel am See.", "Tim malt Lisa im Sessel am See. Toll!", "Male mit Tim!"],
             "seite29": ["Im Laden", "Mama ist mit Tim im Laden.", "Mama nimmt Tomaten.", "Es sind Tomaten in Dosen.", "Mama nimmt Ananas.", "Es sind Ananas in Dosen.", "Mama nimmt Linsen.", "Es sind Linsen in Dosen.", "Tim nimmt Salami, Tee, Salat."]
         }
             ;
@@ -46,10 +46,21 @@
                     });
                 }
             }
+            //zufallsSatz();
         });
 
 
+        function zufallsSatz29() {
+            satz.innerHTML =
+                bh2.seite29[Math.floor(Math.random() * bh2.seite29.length)];
+            document.getElementById('button').blur();
+        }
 
+        function zufallsSatz11() {
+            satz.innerHTML =
+                bh2.seite11[Math.floor(Math.random() * bh2.seite11.length)];
+            document.getElementById('button').blur();
+        }
 
         function zufallsSatz() {
             satz.innerHTML =
@@ -128,10 +139,18 @@
 
             <div class="w3-panel w3-card-4 w3-ghgrey w3-round-large w3-padding">
 
-                <button id="button" class="w3-button w3-round-large w3-xxlarge w3-green w3-hover-green"
-                    onclick="zufallsSatz()"><span class=reload>&nbsp;<b>&#x21bb;</b>&nbsp;</span></button>
+                
+                    <button id="button11" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
+                    onclick="zufallsSatz11()"><span class=reload>&nbsp;<b>Seite 11 &#x21bb;</b>&nbsp;</span></button>
+
+                    <button id="button29" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
+                    onclick="zufallsSatz29()"><span class=reload>&nbsp;<b>Seite 29 &#x21bb;</b>&nbsp;</span></button>
+
+                    <button id="button" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
+                    onclick="zufallsSatz()"><span class=reload>&nbsp;<b>Alle Seiten &#x21bb;</b>&nbsp;</span></button>
+
                     <p id="satz" style="font-weight: bold;">
-                       <i style="color:#686868;font-size:66%">Drücke den grünen Knopf</i>
+                       <i style="color:#686868;font-size:66%">Drücke einen grünen Knopf</i>
                     </p>
             </div>
         </div>
