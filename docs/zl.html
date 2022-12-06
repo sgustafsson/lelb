@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script>
 
-        var up;
         var satz;
 
         const bh2 = {
@@ -53,19 +52,22 @@
         function zufallsSatz29() {
             satz.innerHTML =
                 bh2.seite29[Math.floor(Math.random() * bh2.seite29.length)];
-            document.getElementById('button').blur();
+            document.getElementById('button29').blur();
+            document.getElementById('headline').style.display = "none";
         }
 
         function zufallsSatz11() {
             satz.innerHTML =
                 bh2.seite11[Math.floor(Math.random() * bh2.seite11.length)];
-            document.getElementById('button').blur();
+            document.getElementById('button11').blur();
+            document.getElementById('headline').style.display = "none";
         }
 
         function zufallsSatz() {
             satz.innerHTML =
                 arr[Math.floor(Math.random() * arr.length)];
             document.getElementById('button').blur();
+            document.getElementById('headline').style.display = "none";
         }
     </script>
 
@@ -110,7 +112,7 @@
 
 
 
-    <h2 style="color:#686868"><b>Lese</b> Zufallsgenerator</h2>
+    <h2 style="color:#686868" id="headline"><b>Lese</b> Zufallsgenerator</h2>
 
     <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green">Open
         Modal</button>
@@ -157,8 +159,6 @@
         <div class="w3-col" style="width:10%">&nbsp;
         </div>
     </div>
-
-
 
 </body>
 
