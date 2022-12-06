@@ -54,6 +54,7 @@
                 bh2.seite29[Math.floor(Math.random() * bh2.seite29.length)];
             document.getElementById('button29').blur();
             document.getElementById('headline').style.display = "none";
+            increment();
         }
 
         function zufallsSatz11() {
@@ -61,6 +62,7 @@
                 bh2.seite11[Math.floor(Math.random() * bh2.seite11.length)];
             document.getElementById('button11').blur();
             document.getElementById('headline').style.display = "none";
+            increment();
         }
 
         function zufallsSatz() {
@@ -68,6 +70,17 @@
                 arr[Math.floor(Math.random() * arr.length)];
             document.getElementById('button').blur();
             document.getElementById('headline').style.display = "none";
+            increment();
+        }
+
+        function increment() {
+            var current = parseInt(document.getElementById('zaehler').innerHTML);
+            if(Number.isNaN(current)) {
+                current = 0;
+            }
+            console.log(current);
+            current = current + 1;
+            document.getElementById('zaehler').innerHTML = current;
         }
     </script>
 
@@ -154,6 +167,7 @@
                     <p id="satz" style="font-weight: bold;">
                        <i style="color:#686868;font-size:66%">Drücke einen grünen Knopf</i>
                     </p>
+                    <p id="zaehler" style="color:#686868; font-size:33%"></p>
             </div>
         </div>
         <div class="w3-col" style="width:10%">&nbsp;
