@@ -17,6 +17,12 @@
         var up;
         var satz;
 
+        const bh2 = {
+            "seite11": ["Tim malt Lisa", "Tim malt Lisa im Sessel.", "Tim malt Lisa im Sessel am See.", "Tim malt Lisa im Sessel am See. Toll!", "Male mit Tim!"],
+            "seite29": ["Im Laden", "Mama ist mit Tim im Laden.", "Mama nimmt Tomaten.", "Es sind Tomaten in Dosen.", "Mama nimmt Ananas.", "Es sind Ananas in Dosen.", "Mama nimmt Linsen.", "Es sind Linsen in Dosen.", "Tim nimmt Salami, Tee, Salat."]
+        }
+            ;
+
         var arr = ["Also los!", "Lola ist im Zelt.", "Lola ist mit Imo im Zelt.", "Lolas Zelt ist alt.", "Ist Lisa im Zelt?", "Ist Tim im Zelt?", "Lisa ist mit Tima am Zelt.", "Lisa als Indianerin.",
             "Tim als Indianer.", "Toll!", "Los, Tim!", "Lola ist im Zelt.", "Lola ist im Baumhaus.", "Tim ist mit Lola im Baumhaus.", "Imo ist am Napf.", "Lisa ist am Ast.", "Toll, Lisa!", "Lola!", "Tim!",
             "Oma Isa", "Oma Isa ist am Baumhaus.", "Ist Oma Isa alt?", "O, lila Lollis in Omas Hand!", "Isst Imo Lollis?",
@@ -24,11 +30,25 @@
             "Also isst Tim Brote mit Salami.", "Mama isst Salat.", "Mist! Imo isst Lolas Salami!", "Lass los, Imo!",
             "So malt Tim mit Lisa.", "Tim malt.", "Tim malt mit Lisa.", "Lisa malt Oma.", "Malt Tim Lamas?", "Lola, lass mal!", "Tim malt total toll!",
             "So malt Lola.", "Lola malt am Tablet.", "Also los, Lola!", "Malt Lola Salat in Lila?", "Malt Lola Lamas in Lila?", "Lola malt Oma Isa in Lila.",
-            "Im Laden", "Mama ist mit Tim im Laden.", "Mama nimmt Tomaten.", "Es sind Tomaten in Dosen.", "Mama nimmt Ananas.", "Es sind Ananas in Dosen.", "Mama nimmt Linsen.", "Es sind Linsen in Dosen.", "Tim nimmt Salami, Tee, Salat."];
+        ];
 
         document.addEventListener("DOMContentLoaded", () => {
             satz = document.getElementById('satz');
+            console.log(arr.length);
+            arr = arr.concat(bh2.seite11).concat(bh2.seite29);
+            console.log(arr.length);
+            let checkbox = document.getElementsByTagName("input");
+            for (let i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].type.toLowerCase() == 'checkbox') {
+                    checkbox[i].addEventListener("change", () => {
+                        console.log("Checkbox changed " + this);
+
+                    });
+                }
+            }
         });
+
+
 
 
         function zufallsSatz() {
@@ -81,13 +101,32 @@
 
     <h2 style="color:#686868"><b>Lese</b> Zufallsgenerator</h2>
 
+    <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green">Open
+        Modal</button>
 
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-blue">
+            <div class="w3-container">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <input class="w3-check" type="checkbox" checked="checked" id="bh11">
+                <label>Seite 11</label>
 
+                <input class="w3-check" type="checkbox" id="bh29">
+                <label>Seite 29</label>
+
+                <input class="w3-check" type="checkbox" id="alle">
+                <label>Alle Seiten</label>
+            </div>
+        </div>
+    </div>
+ -->
     <div class="w3-row">
         <div class="w3-col" style="width:10%">&nbsp;
         </div>
         <div class="w3-col" style="width:80%">
-            <div class="w3-panel w3-card-4 w3-ghgrey w3-round-large">
+            
+            <div class="w3-panel w3-card-4 w3-ghgrey w3-round-large w3-padding">
                 <button id="button" class="w3-button w3-round-large w3-xxlarge w3-green w3-hover-green"
                     onclick="zufallsSatz()"><span class=reload><b>&#x21bb;</b></span></button>
 
