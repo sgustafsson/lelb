@@ -15,7 +15,7 @@
     <script>
 
         var up;
-        var down;
+        var satz;
 
         var arr = ["Also los!", "Lola ist im Zelt.", "Lola ist mit Imo im Zelt.", "Lolas Zelt ist alt.", "Ist Lisa im Zelt?", "Ist Tim im Zelt?", "Lisa ist mit Tima am Zelt.", "Lisa als Indianerin.",
             "Tim als Indianer.", "Toll!", "Los, Tim!", "Lola ist im Zelt.", "Lola ist im Baumhaus.", "Tim ist mit Lola im Baumhaus.", "Imo ist am Napf.", "Lisa ist am Ast.", "Toll, Lisa!", "Lola!", "Tim!",
@@ -23,18 +23,18 @@
             "Im Tal.", "Tim ist mit Lola im Tal.", "Mama ist mit Imo im Tal.", "Lola ist mit lila Rucksack im Tal.", "Tim ist so matt.", "Brote mit Salami!", "Limo ist im Rucksack.", "Toll, Lola!",
             "Also isst Tim Brote mit Salami.", "Mama isst Salat.", "Mist! Imo isst Lolas Salami!", "Lass los, Imo!",
             "So malt Tim mit Lisa.", "Tim malt.", "Tim malt mit Lisa.", "Lisa malt Oma.", "Malt Tim Lamas?", "Lola, lass mal!", "Tim malt total toll!",
-            "So malt Lola.", "Lola malt am Tablet.", "Also los, Lola!", "Malt Lola Salat in Lila?", "Malt Lola Lamas in Lila?", "Lola malt Oma Isa in Lila."];
+            "So malt Lola.", "Lola malt am Tablet.", "Also los, Lola!", "Malt Lola Salat in Lila?", "Malt Lola Lamas in Lila?", "Lola malt Oma Isa in Lila.",
+            "Im Laden", "Mama ist mit Tim im Laden.", "Mama nimmt Tomaten.", "Es sind Tomaten in Dosen.", "Mama nimmt Ananas.", "Es sind Ananas in Dosen.", "Mama nimmt Linsen.", "Es sind Linsen in Dosen.", "Tim nimmt Salami, Tee, Salat."];
 
         document.addEventListener("DOMContentLoaded", () => {
-            down = document.getElementById('GFG_DOWN');
-            
+            satz = document.getElementById('satz');
         });
 
 
-        function GFG_Fun() {
-            down.innerHTML =
+        function zufallsSatz() {
+            satz.innerHTML =
                 arr[Math.floor(Math.random() * arr.length)];
-                document.getElementById('button').blur(); 
+            document.getElementById('button').blur();
         }
     </script>
 
@@ -59,45 +59,40 @@
             body {
                 font-size: 4em;
             }
-
-
         }
 
         @media screen and (max-width: 800px) {
             body {
                 font-size: 2.5em;
             }
-
-
         }
 
         @media screen and (max-width: 300px) {
             body {
                 font-size: 1.5em;
             }
-
-
         }
     </style>
 </head>
 
 <body>
 
-    
+
 
     <h2 style="color:#686868"><b>Lese</b> Zufallsgenerator</h2>
 
-   
+
 
     <div class="w3-row">
         <div class="w3-col" style="width:10%">&nbsp;
         </div>
         <div class="w3-col" style="width:80%">
             <div class="w3-panel w3-card-4 w3-ghgrey w3-round-large">
-                <button id="button" class="w3-button w3-round-large w3-xxlarge w3-green w3-hover-green" onclick="GFG_Fun()"><span class=reload><b>&#x21bb;</b></span></button>
+                <button id="button" class="w3-button w3-round-large w3-xxlarge w3-green w3-hover-green"
+                    onclick="zufallsSatz()"><span class=reload><b>&#x21bb;</b></span></button>
 
                 <br>
-                <p id="GFG_DOWN" style="font-weight: bold;">
+                <p id="satz" style="font-weight: bold;">
                     Drücke den grünen Knopf
                 </p>
             </div>
