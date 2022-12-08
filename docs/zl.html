@@ -77,13 +77,13 @@
         }
 
         function randomFox() {
+            document.getElementById('foxheading').innerHTML = "Zur Belohnung ein Fuchs!"
+            document.getElementById('foximage').src="";
             $.ajax({
                 type: "GET",
                 dataType: "json",
                 url: "https://randomfox.ca/floof/",
                 success: function (response) {
-                    console.log(response.image);
-                    document.getElementById('foxheading').innerHTML = "Zur Belohnung ein Fuchs!"
                     document.getElementById('foximage').src = response.image;
                     document.getElementById('id01').style.display = 'block';
                 }
@@ -190,7 +190,7 @@
                 <h4 id="foxheading">Zur Belohnung ein Fuchs</h4>
                 <span onclick="document.getElementById('id01').style.display='none'"
                     class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright"
-                    style="cursor:pointer">×</span>
+                    style="cursor:pointer">X</span>
                 <img src="" id="foximage" style="max-width: 100%;max-height: 100%;">
             </div>
         </div>
