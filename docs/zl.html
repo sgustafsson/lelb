@@ -37,21 +37,9 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             satz = document.getElementById('satz');
-            console.log(arr.length);
             arr = arr.concat(bh2.seite11).concat(bh2.seite29);
-            console.log(arr.length);
-            let checkbox = document.getElementsByTagName("input");
-            for (let i = 0; i < checkbox.length; i++) {
-                if (checkbox[i].type.toLowerCase() == 'checkbox') {
-                    checkbox[i].addEventListener("change", () => {
-                        console.log("Checkbox changed " + this);
-
-                    });
-                }
-            }
-            //zufallsSatz();
-
-        });
+        }
+        );
 
         function checkTimeBetweenButtonClick(lbc) {
             var current = parseInt(document.getElementById('zaehler').innerHTML);
@@ -60,15 +48,11 @@
                 current = 0;
             }
             if (current === 0) {
-                //first click afterp age load can be fast
+                //first click after page load can be fast
                 return;
             }
             let seconds = Math.abs(lastButtonClick.getTime() - lbc.getTime()) / 1000;
-            if (seconds > 2) {
-                //console.log("Last button was clicked mroe than 2 seconds ago, everythign is fine...")
-            } else {
-                //alert("You are clicking too fast, are you really reading those sentences?");
-                foxheading
+            if (seconds < 2) {
                 document.getElementById('foxheading').innerHTML = "Du bist zu schnell, liest du auch wirklich?"
                 document.getElementById('foximage').src = "emoticon-holding-stop-sign-cartoon-cartoon-mascot_193274-902.jpg";
                 document.getElementById('id01').style.display = 'block';
@@ -78,7 +62,7 @@
 
         function randomFox() {
             document.getElementById('foxheading').innerHTML = "Zur Belohnung ein Fuchs!"
-            document.getElementById('foximage').src="";
+            document.getElementById('foximage').src = "";
             $.ajax({
                 type: "GET",
                 dataType: "json",
@@ -138,6 +122,7 @@
             var win = window.open('https://lesedusche.de/track/anna-ritter-vom-christkind-denkt-euch-ich-habe-das-christkind.html', '_blank');
             win.focus();
         }
+        
     </script>
 
     <style>
