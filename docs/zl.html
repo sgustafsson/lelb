@@ -49,15 +49,23 @@
             }
             if (current === 0) {
                 //first click after page load can be fast
-                return;
+                lastButtonClick = lbc;
+                return true;
             }
             let seconds = Math.abs(lastButtonClick.getTime() - lbc.getTime()) / 1000;
+            console.log("Seconds " + seconds);
             if (seconds < 2) {
                 document.getElementById('foxheading').innerHTML = "Du bist zu schnell, liest du auch wirklich?"
                 document.getElementById('foximage').src = "emoticon-holding-stop-sign-cartoon-cartoon-mascot_193274-902.jpg";
                 document.getElementById('id01').style.display = 'block';
+                lastButtonClick = lbc;
+                return false;
+            } else {
+                lastButtonClick = lbc;
+                return true;
             }
-            lastButtonClick = lbc;
+
+
         }
 
         function randomFox() {
@@ -76,30 +84,34 @@
 
 
         function zufallsSatz29() {
-            checkTimeBetweenButtonClick(new Date());
-            satz.innerHTML =
-                bh2.seite29[Math.floor(Math.random() * bh2.seite29.length)];
-            document.getElementById('button29').blur();
-            document.getElementById('headline').style.display = "none";
-            increment();
+            if (checkTimeBetweenButtonClick(new Date())) {
+                satz.innerHTML =
+                    bh2.seite29[Math.floor(Math.random() * bh2.seite29.length)];
+                document.getElementById('button29').blur();
+                document.getElementById('headline').style.display = "none";
+                increment();
+            }
+
         }
 
         function zufallsSatz11() {
-            checkTimeBetweenButtonClick(new Date());
-            satz.innerHTML =
-                bh2.seite11[Math.floor(Math.random() * bh2.seite11.length)];
-            document.getElementById('button11').blur();
-            document.getElementById('headline').style.display = "none";
-            increment();
+            if (checkTimeBetweenButtonClick(new Date())) {
+                satz.innerHTML =
+                    bh2.seite11[Math.floor(Math.random() * bh2.seite11.length)];
+                document.getElementById('button11').blur();
+                document.getElementById('headline').style.display = "none";
+                increment();
+            }
         }
 
         function zufallsSatz() {
-            checkTimeBetweenButtonClick(new Date());
-            satz.innerHTML =
-                arr[Math.floor(Math.random() * arr.length)];
-            document.getElementById('button').blur();
-            document.getElementById('headline').style.display = "none";
-            increment();
+            if (checkTimeBetweenButtonClick(new Date())) {
+                satz.innerHTML =
+                    arr[Math.floor(Math.random() * arr.length)];
+                document.getElementById('button').blur();
+                document.getElementById('headline').style.display = "none";
+                increment();
+            }
         }
 
         function increment() {
@@ -122,7 +134,7 @@
             var win = window.open('https://lesedusche.de/track/anna-ritter-vom-christkind-denkt-euch-ich-habe-das-christkind.html', '_blank');
             win.focus();
         }
-        
+
     </script>
 
     <style>
