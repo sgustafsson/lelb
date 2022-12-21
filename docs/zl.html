@@ -74,7 +74,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: "https://randomfox.ca/floof/",                
+                url: "https://randomfox.ca/floof/",
                 success: function (response) {
                     document.getElementById('foximage').src = response.image;
                     document.getElementById('id01').style.display = 'block';
@@ -84,8 +84,8 @@
 
         function randomAvatar() {
             document.getElementById('foxheading').innerHTML = "Zur Belohnung ein Avatar!";
-            document.getElementById('foximage').src = "https://avatars.dicebear.com/api/big-smile/" + Math.floor(Math.random() * 10) + ".svg";            
-             document.getElementById('id01').style.display = 'block';
+            document.getElementById('foximage').src = "https://avatars.dicebear.com/api/avataaars/" + Math.floor(Math.random() * 42) + ".svg";
+            document.getElementById('id01').style.display = 'block';
         }
 
 
