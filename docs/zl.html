@@ -125,25 +125,38 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
+        var pbPerc = 0;
+
         async function increment() {
 
             var current = parseInt(document.getElementById('zaehler').innerHTML);
 
             if (Number.isNaN(current)) {
                 current = 0;
+                pbPerc = 0;
                 document.getElementById("pbContainer").style.display = "block";
             }
 
             current = current + 1;
             document.getElementById('zaehler').innerHTML = current;
-            document.getElementById("myBar").style.width = (current * 20) + '%';
+            document.getElementById("myBar").style.width = incrementPBPERC() + '%';
             if (current % 5 === 0) {
                 await sleep(666);
                 randomFox();
                 //randomAvatar();
-                document.getElementById("myBar").style.width = "0%"
+                document.getElementById("myBar").style.width = "0%";
+                pbPerc = 0;
             }
 
+        }
+
+        function incrementPBPERC() {
+/*             if(pbPerc === 100) {
+                pbPerc = 0;
+                return pbPerc;
+            } */
+            pbPerc = pbPerc + 20;
+            return pbPerc;
         }
 
         function toPoem() {
