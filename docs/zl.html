@@ -89,6 +89,20 @@
             document.getElementById('id01').style.display = 'block';
         }
 
+        function showGoodie() {
+            var fox = document.getElementById("fox");
+            if(fox.checked) {
+                randomFox();
+                return;
+            }
+            var avatar =  document.getElementById("avatar");
+            if(avatar.checked) {
+                randomAvatar();
+                return;
+            }
+            
+        }
+
 
         function zufallsSatz29() {
             if (checkTimeBetweenButtonClick(new Date())) {
@@ -142,8 +156,9 @@
             document.getElementById("myBar").style.width = incrementPBPERC() + '%';
             if (current % 5 === 0) {
                 await sleep(666);
-                randomFox();
+                //randomFox();
                 //randomAvatar();
+                showGoodie();
                 document.getElementById("myBar").style.width = "0%";
                 pbPerc = 0;
             }
@@ -151,10 +166,6 @@
         }
 
         function incrementPBPERC() {
-/*             if(pbPerc === 100) {
-                pbPerc = 0;
-                return pbPerc;
-            } */
             pbPerc = pbPerc + 20;
             return pbPerc;
         }
@@ -162,6 +173,10 @@
         function toPoem() {
             var win = window.open('https://lesedusche.de/track/anna-ritter-vom-christkind-denkt-euch-ich-habe-das-christkind.html', '_blank');
             win.focus();
+        }
+
+        function showSettings() {
+            document.getElementById('id02').style.display = 'block';
         }
 
     </script>
@@ -225,6 +240,26 @@
         </div>
     </div>
 
+    <div id="id02" class="w3-modal w3-black">
+        <div class="w3-modal-content w3-black">
+            <div class="w3-container">
+                <h4 id="foxheading">Einstellungen</h4>
+                <span onclick="document.getElementById('id02').style.display='none'"
+                    class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright"
+                    style="cursor:pointer">X</span>
+                    <form class="w3-container w3-card-4">
+                        <h2>Wass willst Du als Belohnung?</h2>
+                        <p>
+                        <input class="w3-radio" type="radio" id="fox" name="goodie" value="fox" checked>
+                        <label>Füchse</label></p>
+                        <p>
+                        <input class="w3-radio" type="radio" id="avatar" name="goodie" value="avatar">
+                        <label>Avatare</label></p>
+              </form>
+            </div>
+        </div>
+    </div>
+
    
 
     <div class="w3-row">
@@ -243,8 +278,8 @@
                 <button id="button" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
                     onclick="zufallsSatz()"><span class=reload>&nbsp;<b>Alle Seiten &#x21bb;</b>&nbsp;</span></button>
 
-                <!-- <button id="button" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
-                    onclick="toPoem()"><span class=reload>&nbsp;<b>Zum Gedicht</b>&nbsp;</span></button> -->
+                <button id="button" class="w3-button w3-round-large w3-large w3-blue w3-hover-green"
+                    onclick="showSettings()"><span class=reload>&nbsp;<b>Einstellungen</b>&nbsp;</span></button> 
 
                 <p id="satz" style="font-weight: bold;">
                     <i style="color:#686868;font-size:66%">Drücke einen grünen Knopf</i>
