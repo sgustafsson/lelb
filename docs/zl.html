@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script>
 
@@ -42,6 +43,9 @@
         );
 
         function checkTimeBetweenButtonClick(lbc) {
+            if(!timeLimit()) {
+                return true;
+            }
             var current = parseInt(document.getElementById('zaehler').innerHTML);
 
             if (Number.isNaN(current)) {
@@ -91,16 +95,24 @@
 
         function showGoodie() {
             var fox = document.getElementById("fox");
-            if(fox.checked) {
+            if (fox.checked) {
                 randomFox();
                 return;
             }
-            var avatar =  document.getElementById("avatar");
-            if(avatar.checked) {
+            var avatar = document.getElementById("avatar");
+            if (avatar.checked) {
                 randomAvatar();
                 return;
             }
-            
+
+        }
+
+        function timeLimit() {
+            var limit = document.getElementById("tYes");
+            if (limit.checked) {
+                return true;
+            }
+            return false;
         }
 
 
@@ -190,7 +202,7 @@
             text-align: center;
             align-items: center;
             align-content: center;
-            
+
         }
 
         .w3-ghgrey,
@@ -243,24 +255,30 @@
     <div id="id02" class="w3-modal w3-black">
         <div class="w3-modal-content w3-black">
             <div class="w3-container">
-                <h4 id="foxheading">Einstellungen</h4>
+                <h1 id="foxheading">Einstellungen</h1>
                 <span onclick="document.getElementById('id02').style.display='none'"
                     class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright"
                     style="cursor:pointer">X</span>
-                    <form class="w3-container w3-card-4">
-                        <h2>Wass willst Du als Belohnung?</h2>
-                        <p>
-                        <input class="w3-radio" type="radio" id="fox" name="goodie" value="fox" checked>
-                        <label>Füchse</label></p>
-                        <p>
-                        <input class="w3-radio" type="radio" id="avatar" name="goodie" value="avatar">
-                        <label>Avatare</label></p>
-              </form>
+                <form class="w3-container w3-card-4">
+                    <h3>Wass willst Du als Belohnung?</h3>
+
+                    <input class="w3-radio" type="radio" id="fox" name="goodie" value="fox" checked>
+                    <label>Füchse</label>
+
+                    <input class="w3-radio" type="radio" id="avatar" name="goodie" value="avatar">
+                    <label>Avatare</label>
+                    <h3>Mindest-Lesezeit 2 Sekunde?</h3>
+
+                    <input class="w3-radio" type="radio" id="tYes" value="tYes" name="time" checked>
+                    <label>Ja</label>
+                    <input class="w3-radio" type="radio" id="tNo" value="tNo" name="time">
+                    <label>Nein</label>
+                </form>
             </div>
         </div>
     </div>
 
-   
+
 
     <div class="w3-row">
         <div class="w3-col" style="width:10%">&nbsp;
@@ -270,22 +288,23 @@
             <div class="w3-panel w3-card-4 w3-ghgrey w3-round-large w3-padding">
 
                 <button id="button11" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
-                    onclick="zufallsSatz11()"><span class=reload>&nbsp;<b>Seite 11 &#x21bb;</b>&nbsp;</span></button>
+                    onclick="zufallsSatz11()"><span class=reload>&nbsp;<b>Seite 11</b>&nbsp;</span></button>
 
                 <button id="button29" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
-                    onclick="zufallsSatz29()"><span class=reload>&nbsp;<b>Seite 29 &#x21bb;</b>&nbsp;</span></button>
+                    onclick="zufallsSatz29()"><span class=reload>&nbsp;<b>Seite 29</b>&nbsp;</span></button>
 
                 <button id="button" class="w3-button w3-round-large w3-large w3-green w3-hover-green"
-                    onclick="zufallsSatz()"><span class=reload>&nbsp;<b>Alle Seiten &#x21bb;</b>&nbsp;</span></button>
+                    onclick="zufallsSatz()"><span class=reload>&nbsp;<b>Alle Seiten</b>&nbsp;</span></button>
 
-                <button id="button" class="w3-button w3-round-large w3-large w3-blue w3-hover-green"
-                    onclick="showSettings()"><span class=reload>&nbsp;<b>Einstellungen</b>&nbsp;</span></button> 
+                <button id="button" class="w3-button w3-round-large w3-large w3-blue w3-hover-blue"
+                    onclick="showSettings()"><span class=reload><i class="fa fa-wrench" aria-hidden="true"></i></span></button>
 
                 <p id="satz" style="font-weight: bold;">
                     <i style="color:#686868;font-size:66%">Drücke einen grünen Knopf</i>
                 </p>
 
-                <div class="w3-light-grey w3-round-large w3-small " id="pbContainer" hidden style="width:50%;margin: auto">
+                <div class="w3-light-grey w3-round-large w3-small " id="pbContainer" hidden
+                    style="width:50%;margin: auto">
                     <div id="myBar" class="w3-container w3-deep-orange w3-round-large" style="width:0%">&nbsp;</div>
                 </div>
                 <p id="zaehler" style="color:#686868; font-size:15%; font-weight: bold;"></p>
